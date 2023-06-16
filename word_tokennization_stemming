@@ -1,0 +1,161 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMDlbQTLU7R+NcAaBhSh0Tn",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Ravikiran811/Machine-learning/blob/main/word_tokennization_stemming\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 32,
+      "metadata": {
+        "id": "2TwWOjJJaSuY"
+      },
+      "outputs": [],
+      "source": [
+        " from nltk.stem import PorterStemmer\n",
+        " porter=PorterStemmer()"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "porter=PorterStemmer()"
+      ],
+      "metadata": {
+        "id": "PdWn7xuucF8W"
+      },
+      "execution_count": 33,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sentence=\"hello  bro i want to become a softwear developer thats why i spent most of the time with structural languages\""
+      ],
+      "metadata": {
+        "id": "DhVFFvRPcdla"
+      },
+      "execution_count": 34,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from nltk import word_tokenize,sent_tokenize"
+      ],
+      "metadata": {
+        "id": "z_fezG-Mc6hx"
+      },
+      "execution_count": 35,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import nltk\n",
+        "nltk.download('punkt')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6yfS7X-2hOTH",
+        "outputId": "beb07790-09b1-4721-9cd3-8a4f2472d116"
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package punkt to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping tokenizers/punkt.zip.\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 36
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def sentenceStemmer(sentence):\n",
+        "  word_stemmer=word_tokenize(sentence)\n",
+        "  print(word_stemmer)\n",
+        "  sent_stemmer=[]\n",
+        "  for word in word_stemmer:\n",
+        "    sent_stemmer.append(porter.stem(word))\n",
+        "    sent_stemmer.append(\" \")\n",
+        "  return \"\".join(sent_stemmer)\n",
+        "x=sentenceStemmer(sentence)\n",
+        "print(\"Sentence after stemming :\", x)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wnbgPR63czsw",
+        "outputId": "912c8456-ade5-4828-8cc3-a6a36e077b62"
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['hello', 'bro', 'i', 'want', 'to', 'become', 'a', 'softwear', 'developer', 'thats', 'why', 'i', 'spent', 'most', 'of', 'the', 'time', 'with', 'structural', 'languages']\n",
+            "Sentence after stemming : hello bro i want to becom a softwear develop that whi i spent most of the time with structur languag \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "VsYEEbzOdMpY"
+      },
+      "execution_count": 41,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "v6_ExkjDfGD-"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
